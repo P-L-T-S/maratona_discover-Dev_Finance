@@ -1,0 +1,118 @@
+/* ------------ GLOBAL --------- */
+
+:root{
+    --dark-blue: #363f5f;
+    --light-blue: #969CB2;
+    --dark-green: #2d4a22;
+    --light-green: #49aa26;
+    --light-red: #E92929;
+    --light-background: #f0f2f5;
+}
+
+*, input, textarea, select, button{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background: var(--light-background);
+}
+.container{
+    width: min(90vw, 800px);
+    margin: 0 auto;
+}
+h2{
+    margin: 3.2rem 0 0.8rem;
+    color: var(--dark-blue);
+    font-weight: normal;
+}
+
+/* ----- HEADER ----- */
+
+header{
+    background: var(--dark-green);
+    padding: 2rem 0 10rem;
+    text-align: center;
+}
+header h1{
+    color: #fff;
+    font-weight: 100;
+}
+
+/* ----- BALANCE ----- */
+#balance{
+    margin-top: -6rem;
+}
+#balance h2{
+    color: #fff;
+    margin-top: 0;
+}
+
+/* ----- CARDS ----- */
+.card{
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 2rem;
+    color: var(--dark-blue)
+}
+.card h3{
+    font-weight: normal;
+    font-size: 1rem;
+}
+.card p{
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-top: 1rem;
+}
+.card.total{
+    background: var(--light-green);
+    color: #fff;
+}
+
+/* ----- TABLE ----- */
+table{
+    width: 100%;
+    border-spacing: 0rem 0.5rem;
+}
+th,td{
+    padding: 1rem 2rem;
+    text-align: left;
+}
+th{
+    font-weight: normal;
+    color: var(--dark-blue);
+}
+td{
+    background: #fff;
+    opacity: 0.5;
+}
+td:first-child{
+    border-radius: 1rem 0 0 1rem;
+    color: var(--dark-blue)
+}
+td:last-child{
+    border-radius: 0 1rem 1rem 0;
+    color: var(--light-blue)
+}
+tr:hover td{
+    opacity: 1
+}
+
+.entrada{
+    color: var(--light-green);
+}
+.saida{
+    color: var(--light-red)
+}
+
+/* ----- FOOTER ----- */
+
+footer{
+    padding: 4rem 0 2rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--dark-blue);
+    opacity: 0.7;
+}
