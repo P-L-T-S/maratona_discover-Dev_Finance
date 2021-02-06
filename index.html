@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link type="text/css" rel="stylesheet" href="./style.css">
-    <script src="./index.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet"> 
 
@@ -23,50 +22,33 @@
                     <span>Entradas</span>
                     <img src="./assets/income.svg" alt="icone de entrada"/>
                 </h3>
-                <p>5.000,00</p>
+                <p id="showIncome">0.000,00</p>
             </div>
             <div class="card">
                 <h3>
                     <span>Saídas</span>
                     <img src="./assets/expense.svg" alt="icone de saida">
                 </h3>
-                <p>2.000,00</p>
+                <p id="showExpense">0.000,00</p>
             </div>
             <div class="card total">
                 <h3>Total</h3>
-                <p>3.000,00</p>
+                <p id="showTotal">0.000,00</p>
             </div>
         </section>
 
         <section id="transaction">
             <h2 class="sr-only">Transações</h2>
-            <a href="#" class="btn new" onclick="Modal.open()"> + Nova transação</a>
-            <table>
-                <theade>
+            <a href="#" class="btn new" onclick="Modal.toggle()"> + Nova transação</a>
+            <table id="data-table">
+                <thead>
                     <th>Descrição</th>
                     <th>Valor</th>
                     <th>Data</th>
                     <th></th>
-                </theade>
+                </thead>
                 <tbody>
-                    <tr>
-                        <td>Luz</td>
-                        <td class="saida">-R$ 500,00</td>
-                        <td>21/01/2021</td>
-                        <td><img src="./assets/minus.svg"></td>
-                    </tr>
-                    <tr>
-                        <td>Criação de Website</td>
-                        <td class="entrada">R$ 5.000</td>
-                        <td>21/01/2021</td>
-                        <td><img src="./assets/minus.svg"></td>
-                    </tr>
-                    <tr>
-                        <td>Internet</td>
-                        <td class="saida">- R$ 240,00</td>
-                        <td>21/01/2021</td>
-                        <td><img src="./assets/minus.svg"></td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </section>
@@ -76,7 +58,7 @@
     <div class="modal-overlay">
         <div class="modal">
             <h2>Nova transação</h2>
-            <form>
+            <form onsubmit="Form.submit(event)">
                 <fieldset>
                     <label class="sr-only"> for="description">Descrição</label>
                     <input type="text" id="description" name="description" placeholder="Descrição"/>
@@ -91,8 +73,8 @@
                     <input type="date" name="date" id="date">
                 </fieldset>
                 <fieldset class="actions">
-                    <a href="#" class="btn cancel" onclick="Modal.close()">Cancelar</a>
-                    <button type="button">Salvar</button>
+                    <a href="#" class="btn cancel" onclick="Modal.toggle()">Cancelar</a>
+                    <button type="submit">Salvar</button>
                 </fieldset>
             </form>
         </div>
@@ -101,5 +83,9 @@
     <footer class="container">
         <p>Dev.Finance$</p>
     </footer>
+
+
+    <script src="./index.js"></script>
+
 </body>
 </html>

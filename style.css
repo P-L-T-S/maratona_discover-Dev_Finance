@@ -7,6 +7,9 @@
     --light-green: #49aa26;
     --light-red: #E92929;
     --light-background: #f0f2f5;
+    --dark-background: #222;
+    --white: #fff;
+    --grey: #aaa;
 }
 *{
     margin: 0;
@@ -41,8 +44,9 @@ button{
 
     border: none;
     border-radius: 0.5rem;
+    outline: none;
 
-    color: #fff;
+    color: var(--white);
     font-weight: bold;
 
     background: var(--light-green);
@@ -86,7 +90,7 @@ button:hover{
 }
 .cancel:hover{
     background: var(--light-red);
-    color: #fff;
+    color: var(--white);
 }
 
 /* ----- SCREEN READER ----- */
@@ -110,7 +114,7 @@ header{
     text-align: center;
 }
 header h1{
-    color: #fff;
+    color: var(--white);
     font-weight: 100;
 }
 
@@ -119,13 +123,13 @@ header h1{
     margin-top: -6rem;
 }
 #balance h2{
-    color: #fff;
+    color: var(--white);
     margin-top: 0;
 }
 
 /* ----- CARDS ----- */
 .card{
-    background: #fff;
+    background: var(--white);
     padding: 1.5rem;
     border-radius: 0.25rem;
     margin-bottom: 2rem;
@@ -145,7 +149,7 @@ header h1{
 }
 .card.total{
     background: var(--light-green);
-    color: #fff;
+    color: var(--white);
 }
 
 /* ----- TRANSAÇOES ----- */
@@ -169,8 +173,11 @@ th{
     color: var(--dark-blue);
 }
 td{
-    background: #fff;
-    opacity: 0.5;
+    background: var(--white);
+    opacity: 0.7;
+}
+td img{
+    cursor: pointer;
 }
 td:first-child{
     border-radius: 1rem 0 0 1rem;
@@ -178,7 +185,6 @@ td:first-child{
 }
 td:last-child{
     border-radius: 0 1rem 1rem 0;
-    color: var(--light-blue)
 }
 tr:hover td{
     opacity: 1
@@ -203,6 +209,7 @@ tr:hover td{
 
     position: fixed;
     top: 0;
+    z-index: 1;
 
     background: rgba(0,0,0,0.7);
 
@@ -214,7 +221,8 @@ tr:hover td{
     visibility: visible;
 }
 .modal{
-    background: #f0f2f5;
+    max-width: 500px;
+    background: var(--light-background);
     padding: 2.4rem;
     position: relative;
 }
