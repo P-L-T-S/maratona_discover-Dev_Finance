@@ -184,8 +184,8 @@ const Form = {
 }
 const App = {
     init(){
-        Table.showTable();
         Balance.updateBalance();
+        Table.showTable();
         Storage.set(Transactions.all);
     },
     reload(){
