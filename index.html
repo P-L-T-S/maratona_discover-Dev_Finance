@@ -14,6 +14,10 @@
     <header>
         <img src="./assets/logo.svg" alt="logo dev finance"/>
     </header>
+    <section class="input-area">
+        <label for="radio">Dark mode:</label>
+        <button type="button" onclick="ToggleMode.toggle()"></button>
+    </section>
     <main class="container">
         <section id="balance">
             <h2 class="sr-only">Balanço</h2>
@@ -74,7 +78,7 @@
                 </fieldset>
                 <fieldset class="actions">
                     <a href="#" class="btn cancel" onclick="Modal.toggle()">Cancelar</a>
-                    <button type="submit">Salvar</button>
+                    <button type="submit" class="modal-btn">Salvar</button>
                 </fieldset>
             </form>
         </div>

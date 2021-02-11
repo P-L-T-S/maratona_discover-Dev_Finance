@@ -1,15 +1,15 @@
 /* ------------ GLOBAL --------- */
 
 :root{
-    --dark-blue: #363f5f;
-    --light-blue: #969CB2;
-    --dark-green: #2d4a22;
+    --title: #363f5f;
+    --sub-title: #969CB2;
+    --header-bg: #2d4a22;
     --light-green: #49aa26;
     --light-red: #E92929;
     --light-background: #f0f2f5;
     --dark-background: #303030;
     --white: #fff;
-    --grey: #363636;
+    --grey: #111;
 }
 *{
     margin: 0;
@@ -32,13 +32,13 @@ body{
 
 h2{
     margin: 3.2rem 0 0.8rem;
-    color: var(--dark-blue);
+    color: var(--title);
     font-weight: normal;
 }
 
 /* ----- BUTTON & LINKS ------ */
 
-button{
+button.modal-btn{
     width: 100%;
     height: 50px;
 
@@ -51,10 +51,10 @@ button{
 
     background: var(--light-green);
 
-    transition: all 0.5s;
+    transition: all 0.3s;
     cursor: pointer;
 }
-button:hover{
+button.modal-btn:hover{
     background: none;
     color: var(--light-green);
     border: 3px solid var(--light-green);
@@ -106,18 +106,82 @@ button:hover{
     border-width: 0;
 }
 
+/* ----- DARK MODE ------ */
+
+section.input-area button.dark{
+    background: var(--dark-background)
+}
+body.dark{
+    background: var(--dark-background);
+}
+.dark .card{
+    background: #aaa;
+}
+.dark th{
+    color: var(--sub-title);
+}
+.dark td{
+    background: var(--grey);
+}
+.dark td.date{
+    color: var(--light-background);
+}
+.dark td:first-child{
+    color: var(--sub-title);
+}
+.dark .modal{
+    background: var(--dark-background)
+}
+.dark .modal h2{
+    color: var(--sub-title);
+}
+.dark .modal small{
+    color: white;
+}
+.dark input{
+    background: #aaa;
+}
+.dark footer{
+    color: var(--sub-title)
+}
 /* ----- HEADER ----- */
 
 header{
-    background: var(--dark-green);
+    background: var(--header-bg);
     padding: 2rem 0 10rem;
     text-align: center;
 }
 header h1{
     color: var(--white);
-    font-weight: 100;
 }
 
+section.input-area{
+    position: absolute;
+    top: 5rem;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: var(--white);
+}
+section.input-area button{
+    margin-left: 0.5rem;
+
+    background: var(--white);
+
+    width: 15px;
+    height: 15px;
+    padding: 5px;
+
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    outline: none;
+}
+section.input-area button:hover{
+    cursor: pointer;
+}
 /* ----- BALANCE ----- */
 #balance{
     margin-top: -6rem;
@@ -133,7 +197,7 @@ header h1{
     padding: 1.5rem;
     border-radius: 0.25rem;
     margin-bottom: 2rem;
-    color: var(--dark-blue)
+    color: var(--title)
 }
 .card h3{
     font-weight: normal;
@@ -170,7 +234,7 @@ th,td{
 }
 th{
     font-weight: normal;
-    color: var(--dark-blue);
+    color: var(--title);
 }
 td{
     background: var(--white);
@@ -181,7 +245,7 @@ td img{
 }
 td:first-child{
     border-radius: 1rem 0 0 1rem;
-    color: var(--dark-blue)
+    color: var(--title)
 }
 td:last-child{
     border-radius: 0 1rem 1rem 0;
@@ -267,7 +331,7 @@ footer{
     padding: 4rem 0 2rem;
     text-align: center;
     font-weight: bold;
-    color: var(--dark-blue);
+    color: var(--title);
     opacity: 0.7;
 }
 
@@ -281,5 +345,10 @@ footer{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 2rem;
+    }
+    section.input-area{
+        width: auto;
+        right: 1rem;
+        top: 2.5rem;
     }
 }

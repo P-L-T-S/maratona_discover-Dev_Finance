@@ -6,17 +6,25 @@ const Modal = {
 const Storage = {
     get(){
         // JSON.parse transforma a string guardada no localStorage para seu tipo original
-        return JSON.parse(localStorage.getItem("allTransactions")) || [];
+        return JSON.parse(localStorage.getItem("Transactions")) || [];
     },
     set(transaction){
-        // localStorage usa dois parametros para algo
+        // localStorage usa dois parametros para guardar algo
         // o primeiro argumento é a chave para acessar o item
         // o segundo é o valor que será salvo
         
         
         // o localStorage recebe apenas strings
         // JSON.stringfy transforma qualquer valor em string
-        localStorage.setItem("allTransactions", JSON.stringify(transaction));
+        
+        localStorage.setItem("Transactions", JSON.stringify(transaction))
+    
+    },
+    getSelectedMode(){
+        return JSON.parse(localStorage.getItem("selectedMode")) || false;
+    },
+    setSelectedMode(mode){
+        localStorage.setItem("selectedMode", JSON.stringify(mode));
     }
 }
 const Formats = {
@@ -24,7 +32,7 @@ const Formats = {
         
         value = Number(value) * 100;
 
-        return value;
+        return Math.round(value);
     },
     formatDate(date){
         const splitDate = date.split("-");
@@ -47,7 +55,6 @@ const Formats = {
         return signal + value
     }
 }
-
 const Transactions = {
     
     all: Storage.get(),
@@ -110,9 +117,9 @@ const Table = {
 
         const html = `
         <tr>
-            <td>${transaction.description}</td>
+            <td class="description">${transaction.description}</td>
             <td class=${amountClass}>${amount}</td>
-            <td>${transaction.date}</td>
+            <td class="date">${transaction.date}</td>
             <td><img src="./assets/minus.svg" onclick="Transactions.remove(${index})" ></td>
         </tr>
         `
@@ -187,10 +194,38 @@ const App = {
         Balance.updateBalance();
         Table.showTable();
         Storage.set(Transactions.all);
+        ToggleMode.verifySelectedMode();
     },
     reload(){
         Table.containerTransection.innerHTML = "";
         App.init()
+    }
+}
+const ToggleMode = {
+
+    clicked: Storage.getSelectedMode(),
+
+    toggle(){
+
+        ToggleMode.saveOption();
+
+        document.querySelector(".input-area button").classList.toggle("dark");
+
+        document.querySelector("body").classList.toggle("dark");
+
+    },
+    saveOption(){
+        ToggleMode.clicked = !ToggleMode.clicked;
+        Storage.setSelectedMode(ToggleMode.clicked);
+    },
+    verifySelectedMode(){
+
+        if(ToggleMode.clicked){
+
+            document.querySelector(".input-area button").classList.add("dark");
+            document.querySelector("body").classList.add("dark");
+        
+        }
     }
 }
 App.init()
